@@ -1,0 +1,331 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+     font-family: "Jost", sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    color:white;
+    font-size: 10px;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+header{
+    width: 100vw;
+    padding: 30px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8rem;
+}
+.opcoes ul{
+    display: flex;
+    list-style-type: none;
+}
+
+.opcoes ul li{
+    padding: 10px;
+}
+
+.opcoes ul li a{
+    font-weight: 600;
+    color: rgb(207, 195, 19);
+    text-decoration: none; 
+}
+
+
+.opcoes ul li a:hover{
+     color: rgb(232, 236, 0);
+}
+
+.container{
+  width: 98%;
+  margin: 0 auto;   /* centraliza */
+  text-align: center; /* opcional: centraliza o texto */
+}
+
+.hero{
+   width: 98%;
+   border-radius: 1.3rem;
+    height: 70vh; /* altura da seção */
+    margin: 0 auto;  /* <--- centraliza a section inteira */
+    background-image: url('imagen/logo-2.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    position: relative; /* necessário para o overlay */
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5); 
+    /* ↑ 0.5 = metade transparente (pode mudar para 0.2, 0.3, 0.7...) */
+
+    z-index: 1; /* overlay em cima da imagem */
+}
+.hero .container {
+    position: relative;
+    z-index: 2; /* texto na frente do overlay */
+}
+
+.container h1{
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.container p{
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.btn{
+    width: 230px;
+    height: 50px;
+    border: 2px solid rgb(187, 104, 9);
+    background-color: rgb(248, 252, 48);
+    border-radius: 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn:hover{
+    transition: 1s;
+    transform: translateY(5px);
+    background-color: rgb(197, 136, 22);
+}
+
+.conteudo h2{
+    font-size: 1.5rem;
+    justify-content:flex-start;
+}
+
+.conteudo .container {
+    text-align: left;   /* alinha o texto à esquerda */
+    padding-left: 1.3rem; /* opcional: afasta da borda */
+    margin: 20px 0 20px 0;
+}
+  
+.galeria-container {
+    width: 98%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* espaçamento entre elas */
+    align-items: center;
+    gap: 10px; /* opcional */
+}
+
+.galeria-container img {
+    width: calc(100% / 6 - 10px); /* divide em 6 imagens */
+    height: 150px;
+    border-radius: 8px; /* opcional */
+    box-shadow: 0 0 10px rgb(255, 166, 0);
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+.item p{
+    margin-top: 10px;
+}
+
+.item img{
+    width: 100%;
+}
+
+img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.descricao{
+    margin-top: 30px;
+    box-shadow: 0 0 15px orange;
+    width: 100%;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.descricao img{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    height: 400px;
+
+}
+
+.descricao p{
+    line-height: 2rem;
+    text-align: start;
+    font-size: 1.2rem;
+    height: 300px;
+    width: 500px;
+}
+
+.footer{
+    background-color: #504016;
+    margin-top: 30px;
+    padding: 20px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center  ;
+    flex-direction: column;
+}
+
+.contato-2{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contato-2 h2{
+    font-size: 2rem;
+}
+
+.contato-2 p{
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px){
+
+header{
+    font-size: 1.4rem;
+}
+
+.container h1{
+    font-size: 2rem;
+
+}
+
+.container p{
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.btn{
+    width: 200px;
+    height: 40px;
+  
+}
+
+.hero{
+   width: 98%;
+
+    height: 50vh; 
+}
+
+.galeria-container {
+  display: grid;
+  /* Cria colunas que se ajustam automaticamente */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  /* Define um espaçamento responsivo entre as imagens */
+  gap: 1.5rem; /* Unidade relativa 'rem' para responsividade */
+}
+
+.galeria-container img {
+  /* Garante que as imagens se ajustem à largura do contêiner */
+  max-width: 100%; 
+  height: auto; /* Mantém a proporção da imagem */
+  display: block; /* Ajuda a remover espaços indesejados abaixo da imagem */
+  /* Outros estilos, como object-fit, podem ser usados para controle adicional */
+  object-fit: cover; 
+  width: 100%; /* Faz a imagem preencher toda a célula do grid */
+}
+
+.descricao{
+    flex-direction: column;
+}
+.descricao img{
+    height: 300px;
+
+}
+
+.descricao p{
+    margin-top: 20px;
+    line-height: 1.3rem;
+    font-size: 1rem;
+    height: auto;
+    width: 400px;
+}
+
+
+.contato-2 h2{
+    font-size: 1.5rem;
+}
+
+.contato-2 p{
+    font-size: 1rem;
+}
+
+
+.footer{
+
+    font-size: 0.8rem;
+}
+
+}
+
+@media screen and (max-width: 468px){
+
+    header{
+    font-size: 1rem;
+}
+
+.container h1{
+    font-size: 1.5rem;
+
+}
+
+.container p{
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.descricao p{
+    line-height: 1.2rem;
+    font-size: 0.8rem;
+    width: 300px;
+ 
+}
+
+
+.contato-2 h2{
+    font-size: 1.3rem;
+}
+
+.contato-2 p{
+    font-size: .8rem;
+}
+
+}
+
